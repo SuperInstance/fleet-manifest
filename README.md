@@ -45,12 +45,12 @@ println!("Fleet rigidity: E={}/{} → {}", E, expected, if is_rigid { "RIGID" } 
 
 ## Repositories
 
-- `fleet-coordinate` — ZHC consensus + Laman + beam
-- `pythagorean48-codes` — shared trust encoding
-- `holonomy-consensus` — O(C·L) consensus (FM)
-- `cocapn-glue-core` — Keeper↔Fleet protocol
-- `spline-physics` — beam physics
-- `constraint-theory-ecosystem` — 8-chapter cookbook
+- **[fleet-coordinate](https://github.com/SuperInstance/fleet-coordinate)** — ZHC consensus + Laman + beam
+- **[pythagorean48-codes](https://github.com/SuperInstance/pythagorean48-codes)** — shared trust encoding
+- **[holonomy-consensus](https://github.com/SuperInstance/holonomy-consensus)** — O(C·L) consensus (FM)
+- **[cocapn-glue-core](https://github.com/SuperInstance/cocapn-glue-core)** — Keeper↔Fleet protocol
+- **[spline-physics](https://github.com/SuperInstance/spline-physics)** — beam physics
+- **[constraint-theory-ecosystem](https://github.com/SuperInstance/constraint-theory-ecosystem)** — 8-chapter cookbook
 
 ## Update Cycle
 
