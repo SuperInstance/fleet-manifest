@@ -1,5 +1,7 @@
 # fleet-manifest
 
+
+![CI](https://github.com/SuperInstance/fleet-manifest/actions/workflows/ci.yml/badge.svg)
 **The SuperInstance fleet's shared memory of itself.**
 
 What each vessel owns, what it trusts, and how it communicates. No central registry — every agent has a copy.
