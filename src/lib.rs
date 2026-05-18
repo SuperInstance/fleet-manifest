@@ -157,12 +157,16 @@ impl Manifest {
     /// Check if fleet is Laman-rigid (E = 2V - 3)
     /// Returns (is_rigid, edge_count, expected_edges)
     pub fn lamant_rigid(&self) -> (bool, usize, usize) {
-        let V = self.vessels.len();
+        let v = self.vessels.len();
+        // Laman rigidity requires at least 2 vessels (E = 2V - 3 < 0)
+        if v < 2 {
+            return (false, 0, 0);
+        }
         // Assume all pairs are connected for now (complete graph)
-        let E = V * (V - 1) / 2;
-        let expected = 2 * V - 3;
-        let is_rigid = (E as f64 / expected as f64 - 1.0).abs() < 0.05;
-        (is_rigid, E, expected)
+        let edge_count = v * (v - 1) / 2;
+        let expected = 2 * v - 3;
+        let is_rigid = (edge_count as f64 / expected as f64 - 1.0).abs() < 0.05;
+        (is_rigid, edge_count, expected)
     }
 }
 
@@ -283,10 +287,10 @@ mod tests {
     #[test]
     fn test_lamant_rigid() {
         let manifest = Manifest::current_fleet();
-        let (is_rigid, E, expected) = manifest.lamant_rigid();
+        let (is_rigid, edge_count, _expected) = manifest.lamant_rigid();
         // V=5, E=10, expected=7 → ratio=1.43 → not rigid (too many edges)
         assert!(!is_rigid, "complete graph of 5 is over-rigid, not Laman-rigid");
-        assert_eq!(E, 10);
+        assert_eq!(edge_count, 10);
     }
 
     #[test]
